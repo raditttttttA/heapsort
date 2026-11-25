@@ -23,21 +23,27 @@ void heapify(int arr[], int n, int i) {
 
     if (terbesar != i) {
         tukar(&arr[i], &arr[terbesar]);
-        tampilPohon(arr, n);
         heapify(arr, n, terbesar);
     }
 }
 
 void heapSort(int arr[], int n) {
-    tampilPohon(arr, n);
+    int step = 1;
 
     for (int i = n / 2 - 1; i >= 0; i--) {
         heapify(arr, n, i);
     }
 
+    printf("Step %d (Max Heap Awal):\n", step);
+    step++;
+    tampilPohon(arr, n);
+
     for (int i = n - 1; i > 0; i--) {
         tukar(&arr[0], &arr[i]);
-        tampilPohon(arr, i);
         heapify(arr, i, 0);
+
+        printf("Step %d:\n", step);
+        step++;
+        tampilPohon(arr, i);
     }
 }

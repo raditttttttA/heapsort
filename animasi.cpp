@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <windows.h>
 
 void tampilPohon(int arr[], int n) {
     if (n <= 0) return;
 
-    system("cls");
-    printf("Pohon Heap:\n\n");
+    printf("Pohon:\n");
 
     if (n >= 1) {
         printf("            %2d\n", arr[0]);
@@ -47,11 +45,11 @@ void tampilPohon(int arr[], int n) {
         printf("\n");
     }
 
-    printf("\nData: ");
+    printf("Data: ");
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
-    printf("\n");
+    printf("\n\n");
 
-    Sleep(800);
+    Sleep(300);
 }

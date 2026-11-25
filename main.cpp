@@ -4,20 +4,34 @@
 void heapSort(int arr[], int n);
 
 int main() {
-    int n;
+    char namaFile[100];
+    int n = 0;
     int arr[100];
 
-    printf("Masukkan jumlah data: ");
-    scanf("%d", &n);
+    printf("Masukkan nama file: ");
+    scanf("%s", namaFile);
 
-    for (int i = 0; i < n; i++) {
-        printf("Data ke-%d: ", i + 1);
-        scanf("%d", &arr[i]);
+    FILE *file = fopen(namaFile, "r");
+    if (file == NULL) {
+        printf("File tidak ditemukan!\n");
+        system("pause");
+        return 1;
     }
+
+    while (fscanf(file, "%d", &arr[n]) != EOF) {
+        n++;
+    }
+    fclose(file);
+
+    printf("\nData awal dari file:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n\n");
 
     heapSort(arr, n);
 
-    printf("\nHasil pengurutan:\n");
+    printf("Hasil akhir terurut:\n");
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
